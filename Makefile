@@ -3,11 +3,11 @@ all: build run
 build:
 	latexmk -xelatex \
 	-synctex=1 main.tex
-	
+
 run:
 	# Я использую xreader для просмотра PDF
-	xreader main.pdf &
-	
+	zathura main.pdf &
+
 clean:
 	rm *.aux \
 	*.fdb_latexmk \
