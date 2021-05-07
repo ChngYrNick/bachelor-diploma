@@ -20,11 +20,6 @@
 %\setsansfont{Liberation Sans} % Тут я его не использую, но если пригодится
 \setmonofont{FreeMono} % Моноширинный шрифт для оформления кода
 
-% Русский язык
-\usepackage{polyglossia}
-\setdefaultlanguage{ukrainian}
-\setotherlanguages{english,russian}
-
 \usepackage{amssymb,amsfonts,amsmath} % Математика
 \numberwithin{equation}{section} % Формула вида секция.номер
 
@@ -32,6 +27,12 @@
 \usepackage{indentfirst} % Красная строка после заголовка
 \usepackage{float} % Расширенное управление плавающими объектами
 \usepackage{multirow} % Сложные таблицы
+
+% Русский язык
+\usepackage{polyglossia}
+\setdefaultlanguage{ukrainian}
+\setotherlanguages{english,russian}
+\PolyglossiaSetup{ukrainian}{indentfirst=true}
 
 % Пути к каталогам с изображениями
 \usepackage{graphicx} % Вставка картинок и дополнений
@@ -46,8 +47,8 @@
 \hypersetup{
     colorlinks, urlcolor={black}, % Все ссылки черного цвета, кликабельные
     linkcolor={black}, citecolor={black}, filecolor={black},
-    pdfauthor={Амет Умеров},
-    pdftitle={Разработка виртуальной инфраструктуры для реализации облачных услуг}
+    pdfauthor={Сергій Московко},
+    pdftitle={Дослідження методів предметно-орієнтованого проєктування для розробки веб-додатків}
 }
 
 % Оформление библиографии и подрисуночных записей через точку
@@ -201,4 +202,4 @@
     }
 \makeatother
 
-\setcounter{page}{4} % Начало нумерации страниц
+\setcounter{page}{2} % Начало нумерации страниц
