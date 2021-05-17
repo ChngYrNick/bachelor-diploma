@@ -12,7 +12,6 @@
     tabsize=2, % Размер табуляции
     literate={--}{{-{}-}}2 % Корректно отображать двойной дефис
 }
-
 % Шрифты, xelatex
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont{Times New Roman} % Нормоконтроллеры хотят именно его
@@ -60,7 +59,7 @@
 \def\redeflsection{\def\l@section{\@dottedtocline{1}{0em}{10em}}}
 \makeatother
 
-\renewcommand{\baselinestretch}{1.4} % Полуторный межстрочный интервал
+\renewcommand{\baselinestretch}{1.5} % Полуторный межстрочный интервал
 \parindent 1.27cm % Абзацный отступ
 
 \sloppy             % Избавляемся от переполнений
@@ -70,22 +69,22 @@
 
 % Отступы у страниц
 \usepackage{geometry}
-\geometry{left=3cm}
-\geometry{right=1cm}
+\geometry{left=2.5cm}
+\geometry{right=1.5cm}
 \geometry{top=2cm}
 \geometry{bottom=2cm}
 
 % Списки
 \usepackage{enumitem}
-\setlist[enumerate,itemize]{leftmargin=12.7mm} % Отступы в списках
+\setlist[enumerate,itemize]{wide=\parindent}
 
-\makeatletter
-    \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
-\makeatother
+% \makeatletter
+%     \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
+% \makeatother
 \setlist{nolistsep} % Нет отступов между пунктами списка
 \renewcommand{\labelitemi}{--} % Маркет списка --
-\renewcommand{\labelenumi}{\asbuk{enumi})} % Список второго уровня
-\renewcommand{\labelenumii}{\arabic{enumii})} % Список третьего уровня
+% \renewcommand{\labelenumi}{\asbuk{enumi})} % Список второго уровня
+% \renewcommand{\labelenumii}{\arabic{enumii})} % Список третьего уровня
 
 % Содержание
 \usepackage{tocloft}
@@ -94,6 +93,8 @@
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
 \setcounter{tocdepth}{3}                            % Глубина оглавления, до subsubsection
+\setlength{\cftbeforesecskip}{0pt}
+\setlength{\cftbeforesubsecskip}{0pt}
 
 % Нумерация страниц справа сверху
 \usepackage{fancyhdr}
@@ -115,7 +116,7 @@
 \DeclareCaptionLabelSeparator{defffis}{ -- } % Разделитель
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
 \captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
-\addto\captionsukrainian{\renewcommand{\figurename}{Рис.}} % Имя фигуры
+\addto\captionsukrainian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
 
 % Пользовательские функции
 \newcommand{\addimg}[4]{ % Добавление одного рисунка
@@ -166,15 +167,40 @@
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
-\titleformat{\section}{}{}{12.5mm}{\centering{\thesection\quad\MakeTextUppercase{#1}}\vspace{1.5em}}
-\titleformat{\subsection}[block]{\vspace{1em}}{}{12.5mm}{\thesubsection\quad#1\vspace{1em}}
-\titleformat{\subsubsection}[block]{\vspace{1em}\normalsize}{}{12.5mm}{\thesubsubsection\quad#1\vspace{1em}}
-\titleformat{\paragraph}[block]{\normalsize}{}{12.5mm}{\MakeTextUppercase{#1}}
+
+\titlespacing{\section}{0pt}{0em}{0pt}{}
+\titlespacing{\subsection}{0pt}{0pt}{0pt}{}
+\titlespacing{\subsubsection}{0pt}{0pt}{0pt}{}
+\titlespacing{\paragraph}{0pt}{0pt}{0pt}{}
+
+\titleformat{\section}
+  {}
+  {}
+  {12.5mm}
+  {\centering{\thesection\quad\MakeTextUppercase{#1}}}
+
+\titleformat{\subsection}[block]
+  {\vspace{2\baselineskip}}
+  {}
+  {12.5mm}
+  {\thesubsection\quad#1\vspace{\baselineskip}}
+
+\titleformat{\subsubsection}[block]
+  {\vspace{2\baselineskip}}
+  {}
+  {12.5mm}
+  {\thesubsubsection\quad#1\vspace{\baselineskip}}
+
+\titleformat{\paragraph}[block]
+  {\normalsize}
+  {}
+  {12.5mm}
+  {\MakeTextUppercase{#1}}
 
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании
-    \paragraph{\centerline{{#1}}\vspace{1.5em}}
+    \paragraph{\centerline{{#1}}\vspace{\baselineskip}}
     \addcontentsline{toc}{section}{\uppercase{#1}}
 }
 
@@ -185,10 +211,12 @@
     \addcontentsline{toc}{section}{\uppercase{#1}}
 }
 
+\newcommand{\sectionbreak}{\clearpage}
+
 % Библиография: отступы и межстрочный интервал
 \makeatletter
 \renewenvironment{thebibliography}[1]
-    {\section*{\refname}
+    {\clearpage\section*{\refname}
         \list{\@biblabel{\@arabic\c@enumiv}}
            {\settowidth\labelwidth{\@biblabel{#1}}
             \leftmargin\labelsep
@@ -198,7 +226,8 @@
             \let\p@enumiv\@empty
             \renewcommand\theenumiv{\@arabic\c@enumiv}
         }
-        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\itemsep}{0pt plus 0.3ex}
     }
 \makeatother
 

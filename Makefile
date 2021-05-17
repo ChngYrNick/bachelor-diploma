@@ -5,7 +5,6 @@ build:
 	-synctex=1 main.tex
 
 run:
-	# Я использую xreader для просмотра PDF
 	zathura main.pdf &
 
 clean:
