@@ -26,6 +26,7 @@
 \usepackage{indentfirst} % Красная строка после заголовка
 \usepackage{float} % Расширенное управление плавающими объектами
 \usepackage{multirow} % Сложные таблицы
+\usepackage{cite}
 
 % Русский язык
 \usepackage{polyglossia}
@@ -88,7 +89,8 @@
 
 % Содержание
 \usepackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\hspace{0.38\textwidth}\MakeTextUppercase} % СОДЕРЖАНИЕ
+\renewcommand{\cfttoctitlefont}{\hfill\MakeTextUppercase} % СОДЕРЖАНИЕ
+\renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftsecfont}{\hspace{0pt}}            % Имена секций в содержании не жирным шрифтом
 \renewcommand\cftsecleader{\cftdotfill{\cftdotsep}} % Точки для секций в содержании
 \renewcommand\cftsecpagefont{\mdseries}             % Номера страниц не жирные
