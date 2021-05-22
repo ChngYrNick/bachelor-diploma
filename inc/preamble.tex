@@ -12,6 +12,20 @@
     tabsize=2, % Размер табуляции
     literate={--}{{-{}-}}2 % Корректно отображать двойной дефис
 }
+\lstdefinelanguage{typescript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
 % Шрифты, xelatex
 \defaultfontfeatures{Ligatures=TeX}
 \setmainfont{Times New Roman} % Нормоконтроллеры хотят именно его
@@ -27,6 +41,7 @@
 \usepackage{float} % Расширенное управление плавающими объектами
 \usepackage{multirow} % Сложные таблицы
 \usepackage{cite}
+\usepackage{layouts}
 
 % Русский язык
 \usepackage{polyglossia}
@@ -119,6 +134,7 @@
 \captionsetup[figure]{justification=centering, labelsep=defffis, format=plain} % Подпись рисунка по центру
 \captionsetup[table]{justification=raggedright, labelsep=defffis, format=plain, singlelinecheck=false} % Подпись таблицы слева
 \addto\captionsukrainian{\renewcommand{\figurename}{Рисунок}} % Имя фигуры
+\setlength{\intextsep}{\baselineskip}
 
 % Пользовательские функции
 \newcommand{\addimg}[4]{ % Добавление одного рисунка

@@ -1,0 +1,1 @@
+export { AbstractSpecification } from './internal';
