@@ -1,11 +1,3 @@
-import { Entity } from '../../../shared/entity.base';
-import { Result } from '../../../shared/core/result.base';
-import { Guard } from '../../../shared/core/guard.base';
-import { UniqueID } from '../../../shared/unique-id.base';
-import { CommentText } from './comment-text.value';
-import { CommentVotes } from './comment-votes.list';
-import { CommentVote } from './comment-vote.entity';
-
 interface CommentProps {
   commentId?: UniqueID;
   memberId: UniqueID;

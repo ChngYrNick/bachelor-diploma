@@ -1,7 +1,3 @@
-import { NotSpecification } from './internal';
-import { AndSpecification } from './internal';
-import { OrSpecification } from './internal';
-
 export interface Specification<T> {
   isSatisfiedBy(candidate: T): boolean;
   and(other: Specification<T>): Specification<T>;

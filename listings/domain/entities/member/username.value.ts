@@ -1,6 +1,7 @@
 import { Result } from '../../../shared/core/result.base';
 import { Guard } from '../../../shared/core/guard.base';
 import { ValueObject } from '../../../shared/value-object.base';
+import { UserNameValidator } from '../../specifications/username.validator';
 
 export class UserName extends ValueObject {
   public static maxLength = 15;
@@ -16,19 +17,15 @@ export class UserName extends ValueObject {
 
   public static create(username: string): Result<UserName> {
     const usernameResult = Guard.againstNullOrUndefined(username, 'username');
-    const minLengthResult = Guard.againstAtLeast(this.minLength, username);
-    const maxLengthResult = Guard.againstAtMost(this.maxLength, username);
 
     if (!usernameResult.succeeded) {
       return Result.fail<UserName>(new Error(usernameResult.message));
     }
 
-    if (!minLengthResult.succeeded) {
-      return Result.fail<UserName>(new Error(minLengthResult.message));
-    }
+    const userNameValidator = new UserNameValidator();
 
-    if (!maxLengthResult.succeeded) {
-      return Result.fail<UserName>(new Error(maxLengthResult.message));
+    if (!userNameValidator.isValid(username)) {
+      return Result.fail<UserName>(new Error(userNameValidator.errorMessage));
     }
 
     return Result.ok<UserName>(new UserName(username));

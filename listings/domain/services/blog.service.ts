@@ -1,10 +1,3 @@
-import { Result } from '../../shared/core/result.base';
-import { CommentVote } from '../entities/comment/comment-vote.entity';
-import { Comment } from '../entities/comment/comment.entity';
-import { Member } from '../entities/member/member.entity';
-import { PostVote } from '../entities/post/post-vote.entity';
-import { Post } from '../entities/post/post.entity';
-
 export class BlogService {
   public dislikeComment(
     post: Post,

@@ -1,7 +1,3 @@
-import { Entity } from './entity.base';
-import { DomainEvent } from './event/domain-event.interface';
-import { DomainEvents } from './event/domain-events.base';
-
 export class AggregateRoot extends Entity {
   private readonly _domainEvents: DomainEvent[] = [];
 

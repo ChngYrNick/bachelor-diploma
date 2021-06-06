@@ -1,7 +1,7 @@
 import { Guard } from '../../../shared/core/guard.base';
 import { Result } from '../../../shared/core/result.base';
 import { ValueObject } from '../../../shared/value-object.base';
-import { ValidHashtagNameSpec } from '../../specifications/valid-hashtag-name.spec';
+import { ValidHashtagNameSpec } from '../../specifications/valid-hashtag-name.specif';
 
 interface HashtagNameProps {
   name: string;

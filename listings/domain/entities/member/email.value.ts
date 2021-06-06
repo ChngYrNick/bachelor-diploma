@@ -1,7 +1,7 @@
 import { Result } from '../../../shared/core/result.base';
 import { Guard } from '../../../shared/core/guard.base';
 import { ValueObject } from '../../../shared/value-object.base';
-import { ValidEmailSpec } from '../../specifications/valid-email.spec';
+import { ValidEmailSpec } from '../../specifications/valid-email.specif';
 
 export class Email extends ValueObject {
   private constructor(private readonly _value: string) {

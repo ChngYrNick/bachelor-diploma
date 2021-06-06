@@ -4,11 +4,13 @@
 %%% Початок документу
 \begin{document}
 
-% \includepdf[pages={1,2}]{extra/abstract} % Анотація
+\includepdf[pages={1,2,3}]{extra/title_tt_2} % Титулка і ТЗ
+\includepdf[pages={1,2}]{extra/abstract} % Анотація
 
 \tableofcontents % Зміст
 \clearpage
 
+% \input{inc/0-abstract} 
 \input{inc/0-intro} % Вступ
 \input{inc/1-pz} % Сучасний стан проблеми та основні задачі роботи
 \input{inc/2-design} % Проектування структури та компонентів системи
@@ -16,8 +18,19 @@
 \input{inc/4-testing} % Тестування та фактори якості програмного забезпечення
 \input{inc/0-bibliography} % Перелік джерел
 
-% \input{inc/a-app} % Додаток А
-% \input{inc/b-app} % Додаток Б
+\input{inc/0-appendix}
+
+\includepdf[pages={1}]{extra/tz} % ТЗ
+
+\phantomsection
+\addcontentsline{toc}{section}{Додаток А (Обов'язковий) Технічне завдання на бакалаврську роботу}
+\includepdf[pages={2,3}]{extra/tz} % Додаток А
+
+\input{inc/2-app} % Додаток Б
+\input{inc/a-app} % Додаток В
+\input{inc/b-app} % Додаток Г
+\input{inc/c-app} % Додаток Д
+\input{inc/d-app} % Додаток Е
 
 \end{document}
 %%% Кінець документу

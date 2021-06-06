@@ -1,13 +1,3 @@
-import { AggregateRoot } from '../../../shared/aggregate-root.base';
-import { UserName } from './username.value';
-import { Email } from './email.value';
-import { FirstName } from './first-name.value';
-import { LastName } from './last-name.value';
-import { UniqueID } from '../../../shared/unique-id.base';
-import { Result } from '../../../shared/core/result.base';
-import { Guard } from '../../../shared/core/guard.base';
-import { MemberCreated } from '../../events/member-created.event';
-
 interface MemberProps {
   username: UserName;
   firstName: FirstName;

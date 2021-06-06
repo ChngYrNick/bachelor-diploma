@@ -1,19 +1,3 @@
-import { AggregateRoot } from '../../../shared/aggregate-root.base';
-import { Guard } from '../../../shared/core/guard.base';
-import { Result } from '../../../shared/core/result.base';
-import { UniqueID } from '../../../shared/unique-id.base';
-import { PostCreated } from '../../events/post-created.event';
-import { Comments } from '../comment/comments.list';
-import { Hashtags } from '../hashtag/hashtags.list';
-import { PostVotes } from './post-votes.list';
-import { PostText } from './post-text.value';
-import { PostTitle } from './post-title.value';
-import { Comment } from '../comment/comment.entity';
-import { CommentPosted } from '../../events/comment-posted.event';
-import { PostViewed } from '../../events/post-viewed.event';
-import { PostEdited } from '../../events/post-edited.event';
-import { PostVote } from './post-vote.entity';
-
 export interface PostProps {
   postId?: UniqueID;
   memberId: UniqueID;

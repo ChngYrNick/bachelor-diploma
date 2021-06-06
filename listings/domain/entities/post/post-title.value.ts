@@ -24,7 +24,7 @@ export class PostTitle extends ValueObject {
 
     const postTitleValidator = new PostTitleValidator();
 
-    if (postTitleValidator.isValid(text)) {
+    if (!postTitleValidator.isValid(text)) {
       return Result.fail<PostTitle>(new Error(postTitleValidator.errorMessage));
     }
 

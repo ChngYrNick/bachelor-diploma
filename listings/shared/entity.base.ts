@@ -1,5 +1,3 @@
-import { UniqueID } from './unique-id.base';
-
 export abstract class Entity {
   constructor(private readonly _id: UniqueID) {}
 

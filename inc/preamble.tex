@@ -96,7 +96,7 @@
 
 % \makeatletter
 %     \AddEnumerateCounter{\asbuk}{\@asbuk}{м)}
-% \makeatother
+ \makeatother
 \setlist{nolistsep} % Нет отступов между пунктами списка
 \renewcommand{\labelitemi}{--} % Маркет списка --
 % \renewcommand{\labelenumi}{\asbuk{enumi})} % Список второго уровня
@@ -160,28 +160,28 @@
         \caption{#4} \label{#5}
     \end{figure}
 }
-\newcommand{\addimgapp}[2]{ % Это костыль для приложения Б
+\newcommand{\addimgapp}[3]{ 
     \begin{figure}[H]
         \centering
         \includegraphics[width=1\linewidth]{#1}
-        \caption*{#2}
+        \caption*{#2} \label{#3}
     \end{figure}
 }
 
 % Заголовки секций в оглавлении в верхнем регистре
 \usepackage{textcase}
-\makeatletter
-\let\oldcontentsline\contentsline
-\def\contentsline#1#2{
-    \expandafter\ifx\csname l@#1\endcsname\l@section
-        \expandafter\@firstoftwo
-    \else
-        \expandafter\@secondoftwo
-    \fi
-    {\oldcontentsline{#1}{\MakeTextUppercase{#2}}}
-    {\oldcontentsline{#1}{#2}}
-}
-\makeatother
+% \makeatletter
+% \let\oldcontentsline\contentsline
+% \def\contentsline#1#2{
+%     \expandafter\ifx\csname l@#1\endcsname\l@section
+%         \expandafter\@firstoftwo
+%     \else
+%         \expandafter\@secondoftwo
+%     \fi
+%     {\oldcontentsline{#1}{\MakeTextUppercase{#2}}}
+%     {\oldcontentsline{#1}{#2}}
+% }
+% \makeatother
 
 % Оформление заголовков
 \usepackage[compact,explicit]{titlesec}
@@ -213,20 +213,20 @@
   {\normalsize}
   {}
   {12.5mm}
-  {\MakeTextUppercase{#1}}
+  {#1}
 
 % Секции без номеров (введение, заключение...), вместо section*{}
 \newcommand{\anonsection}[1]{
     \phantomsection % Корректный переход по ссылкам в содержании
-    \paragraph{\centerline{{#1}}\vspace{\baselineskip}}
+    \paragraph{\centerline{\MakeTextUppercase{#1}}\vspace{\baselineskip}}
     \addcontentsline{toc}{section}{\uppercase{#1}}
 }
 
 % Секции для приложений
-\newcommand{\appsection}[1]{
+\newcommand{\appsection}[2]{
     \phantomsection
     \paragraph{\centerline{{#1}}}
-    \addcontentsline{toc}{section}{\uppercase{#1}}
+    \addcontentsline{toc}{section}{#2}
 }
 
 \newcommand{\sectionbreak}{\clearpage}
@@ -249,4 +249,4 @@
     }
 \makeatother
 
-\setcounter{page}{2} % Начало нумерации страниц
+\setcounter{page}{0} % Начало нумерации страниц

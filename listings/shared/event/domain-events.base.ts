@@ -1,9 +1,3 @@
-import EventEmitter from 'events';
-
-import { DomainEvent } from './domain-event.interface';
-import { UniqueID } from '../unique-id.base';
-import { AggregateRoot } from '../aggregate-root.base';
-
 export class DomainEvents {
   private static _eventEmitter: EventEmitter = new EventEmitter();
   private static _markedAggregates: AggregateRoot[] = [];

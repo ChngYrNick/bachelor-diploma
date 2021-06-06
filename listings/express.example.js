@@ -1,0 +1,1 @@
+app.method(path, handler);

@@ -1,6 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-import { Identifier } from './id.base';
-
 export class UniqueID extends Identifier<string> {
   constructor(id: string) {
     super(id);
