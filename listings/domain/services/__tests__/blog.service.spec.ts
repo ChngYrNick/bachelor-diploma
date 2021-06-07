@@ -56,4 +56,3 @@ describe('BlogService', () => {
     expect(likePostResult.isSuccess).toEqual(true);
     expect(post.likes.getItems().length).toEqual(0);
   });
-});
